@@ -1,38 +1,454 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+    <meta charset="UTF-8">
+    <title>Evgeny Tabatsky Homepage</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+                var uri = '/VisitsCounter/addvisit?site=personal';
+                $.get(encodeURI(uri), function (data) {
+                });
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+            $('#tabs').tabs();
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+            $('a').click(function () {
+                var marker = $(this).attr('marker');
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="flutter_test_task">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>flutter_test_task</title>
-  <link rel="manifest" href="manifest.json">
+                if (!!marker) {
+                    var uri = '/VisitsCounter/addvisit?site=' + marker;
+                    $.get(encodeURI(uri), function (data) {
+                    });
+                } else {
+                    console.log('no marker');
+                }
+            })
+        });
+    </script>
 </head>
+
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+<div id="main-wrapper">
+    <div id="tabs">
+
+        <ul>
+            <li><a href="#about" marker="About">Обо мне</a></li>
+            <li><a href="#skills" marker="Skills">Знания и навыки</a></li>
+            <li><a href="#portfolio" marker="Portfolio">Портфолио</a></li>
+            <li><a href="#posts" marker="Posts">Публикации</a></li>
+            <li><a href="#books" marker="Books">Прочитано</a></li>
+            <li><a href="#contacts" marker="Contacts">Контакты</a></li>
+            <li><a href="#services" marker="Services">Услуги</a></li>
+        </ul>
+
+        <div id="about">
+            <p>Меня зовут Евгений Табацкий, и я рад поприветствовать Вас на своем сайте-резюме.</p>
+            <p>Здесь Вы можете ознакомиться с примерами выполненных мной работ, найти ссылки на мои публикации в
+                IT-сообществе Habrahabr, а также получить мои контактные данные.</p>
+            <p>Я родился в 1986 году в городе Комсомольске-на-Амуре Хабаровского края.</p>
+            <p>В 2010 году окончил обучение на факультете компьютерных технологий КнАГТУ (Комсомольский-на-Амуре
+                Государственный Технический Университет) по специальности "Прикладная математика".</p>
+            <p>Во время обучения в школе - участник и призер олимпиад по физике и математике.</p>
+            <p>В 2009 году в составе команды Комсомольского-на-Амуре технического университета прошел в полуфинал
+                международной олимпиады по программированию ACM ICPC.</p>
+            <p>Имею опыт программирования на различных языках и под различные платформы, администрирования локальных
+                сетей, серверов и пользовательских машин, настройки офисной техники, а также общения с пользователями и
+                заказчиками.</p>
+            <p>Более года проработал системным администратором в КнАГТУ, два года в АмГПГУ (Амурский
+                Гуманитарно-Педагогический Государственный Университет) в должности программиста отдела компьютерной
+                техники.</p>
+            <p>С 2014 по 2020 занимался фрилансом,
+                так же в 2015 несколько месяцев проработал в компании ORBIS в должности Android-разработчика.</p>
+           <p>С февраля 2020 по февраль 2023 работал в качестве Independent Contractor в компании Genentech, Inc.
+            - занимался обработкой данных и математическими вычислениями, программировал на
+            Python, MATLAB и Kotlin.</p>
+            <p>В ноябре 2022 проходил
+                <a href="https://yandex.ru/jobs/skill-diagnostic/35605243-581c-4977-84b4-a5706d446954"
+                   target="_blank"
+                   marker="yandex_diagnostics">
+                    диагностику технических навыков "разработка мобильных приложений" в Яндексе</a>.
+                Получил уровень "продвинутый".</p>
+            <p>В свободное от работы время развиваю свои навыки Android Developer и изучаю смежные технологии.
+                В частности, в настоящее время осваиваю разработку под платформы iOS и Flutter.
+            </p>
+            <p>Своё первое приложение под Android написал в 2011 году,
+                но у меня почти нет опыта разработки в команде.</p>
+            <p>В настоящее время ищу позицию Android Developer.</p>
+            <p>В приоритете предложения с возможностью асинхронной коммуникации,
+                без привязки к конкретному часовому поясу.</p>
+            <p>Ближайшая цель - получить опыт коммерческой разработки под Android.</p>
+        </div>
+
+        <div id="skills">
+            <p><b>Языки программирования:</b>
+                Kotlin, Java, Swift, Dart, Python, MATLAB, C/C++</p>
+            <p><b>Мобильное программирование:</b>
+                <br>
+                Android (Java, Kotlin, XML, Android SDK, Gradle,
+                RxJava2, Kotlin Coroutines & Flows, Dagger2, Hilt,
+                Room, Retrofit, OkHttp, Jetpack Compose, MVP, MVVM, MVI, Clean Architecture,
+                JUnit, Espresso, MockK,
+                базовые знания JNI/NDK),
+                <br>
+                базовые знания iOS (XCode, Objective C, Swift, SwiftUI, iOS SDK, GRDB)
+                <br>
+                базовые знания Flutter (Dart, Flutter SDK, sqflite, retrofit, RxDart)
+                <br>
+                базовые знания Kotlin Multiplatform (SQLDelight, Ktor, Decompose)
+            </p>
+            <p><b>IDE:</b>
+                Intellij Idea / Android Studio, MS Visual Studio, XCode</p>
+            <p><b>Навыки работы с операционными системами:</b>
+                Windows, Linux, Mac OS X, Android, iOS, Symbian</p>
+            <p><b>Java Backend:</b> Tomcat, Servlets/JSP, JDBC, REST API, Maven</p>
+            <p><b>Desktop UI:</b> JavaFX, Compose Desktop</p>
+            <p><b>Web Frontend:</b>
+                HTML, CSS, JavaScript, jQuery, ajax</p>
+            <p><b>Базы данных:</b>
+                MySQL, SQLite</p>
+            <p><b>Контроль версий:</b>
+                GIT, Mercurial, SVN</p>
+            <p><b>CI:</b> github actions</p>
+            <p><b>Контейнеризация:</b> Docker</p>
+            <p><b>Мат. моделирование:</b>
+                Matlab+Simulink, LABView</p>
+            <p><b>Скриптовые языки:</b>
+                базовые знания Perl, Bash, PHP</p>
+            <p>Опыт
+                <b>освоения и использования различных программных библиотек</b>
+            </p>
+            <p><b>Иностранные языки:</b> английский (свободное чтение технической документации, переписка),
+                так же понемногу изучаю немецкий (~500 слов) и японский (хирагана, катакана, ~240 кандзи)</p>
+            <p>Умение
+                <b>разбираться в чужом коде</b></p>
+            <p>Опыт работы с <b>linux shell (bash)</b></p>
+            <p>Опыт работы с <b>виртуальными машинами (VMWare, VirtualBox)</b></p>
+            <p>Опыт <b>настройки серверной среды</b></p>
+            <p>Обширные познания в области
+                <b>высшей математики и физики</b></p>
+            <p>Умение
+                <b>пользоваться поисковыми системами</b></p>
+            <p>Умение
+                <b>работать самостоятельно</b></p>
+            <p>Способность к
+                <b>самообучению и тяга к новым знаниям</b></p>
+            <p>Умение
+                <b>решать нестандартные задачи</b></p>
+            <p><b>Ответственность, исполнительность, высокая обучаемость</b></p>
+            <p><b>Огромное желание работать</b></p>
+        </div>
+
+        <div id="portfolio">
+
+            <p><a href="https://play.google.com/store/apps/details?id=jatx.russianrocksongbook&hl=ru" target="_blank"
+                  marker="RussianRockSongBook">Песенник русского рока - тексты песен и аккорды</a>
+                <span class="tag">Kotlin</span>
+                <span class="tag">Android SDK</span>
+                <span class="tag">json</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">Room</span>
+                <span class="tag">RxJava2</span>
+                <span class="tag">Coroutines</span>
+                <span class="tag">Hilt</span>
+                <span class="tag">Retrofit</span>
+                <span class="tag">MVVM</span>
+                <span class="tag">MVI</span>
+                <span class="tag">Jetpack Compose</span>
+            </p>
+
+            <p><a href="https://github.com/tabatsky/RussianRockSongBook4" target="_blank"
+                  marker="RussianRockSongBook_src">Песенник русского рока (исходный код Android)</a>
+                <span class="tag">исходный код</span>
+                <span class="tag">github</span>
+                <span class="tag">Kotlin</span>
+                <span class="tag">Android SDK</span>
+                <span class="tag">json</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">Room</span>
+                <span class="tag">RxJava2</span>
+                <span class="tag">Coroutines</span>
+                <span class="tag">Hilt</span>
+                <span class="tag">Retrofit</span>
+                <span class="tag">MVVM</span>
+                <span class="tag">MVI</span>
+                <span class="tag">Jetpack Compose</span>
+            </p>
+
+            <p><a href="https://github.com/tabatsky/RussianRockSongBook_iOS" target="_blank"
+                  marker="RussianRockSongBook_src_iOS">Песенник русского рока (исходный код iOS)</a>
+                <span class="tag">исходный код</span>
+                <span class="tag">github</span>
+                <span class="tag">Kotlin Multiplatform</span>
+                <span class="tag">Swift</span>
+                <span class="tag">iOS SDK</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">SQLDelight</span>
+                <span class="tag">json</span>
+                <span class="tag">serialization</span>
+                <span class="tag">Ktor</span>
+                <span class="tag">MVI</span>
+                <span class="tag">Finite State Machine</span>
+                <span class="tag">SwiftUI</span>
+            </p>
+
+            <p><a href="https://github.com/tabatsky/russian_rock_song_book_flutter" target="_blank"
+                  marker="RussianRockSongBook_src_Flutter">Песенник русского рока (исходный код Flutter)</a>
+                <span class="tag">исходный код</span>
+                <span class="tag">github</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Flutter SDK</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">sqflite</span>
+                <span class="tag">json</span>
+                <span class="tag">retrofit</span>
+                <span class="tag">MVI</span>
+                <span class="tag">Finite State Machine</span>
+                <span class="tag">RxDart</span>
+            </p>
+
+            <p><a href="https://play.google.com/store/apps/details?id=jatx.remotekeyboard.client" target="_blank"
+                  marker="JatxSSH">Дистанционная клавиатура для Windows</a>
+                <span class="tag">Java</span>
+                <span class="tag">C/C++</span>
+                <span class="tag">Android SDK</span>
+                <span class="tag">JNI</span>
+                <span class="tag">TCP/IP</span>
+                <span class="tag">Windows API</span>
+            </p>
+
+            <p><a href="http://tabatsky.ru/jatxmusic" target="_blank"
+                  marker="JatxMusic">Сетевой mp3-плеер JatxMusic</a>
+                <span class="tag">JavaFX</span>
+                <span class="tag">Android SDK</span>
+                <span class="tag">jLayer</span>
+                <span class="tag">TCP/IP</span>
+                <span class="tag">mp3</span>
+                <span class="tag">звук по сети</span>
+                <span class="tag">исходный код</span>
+                <span class="tag">github</span>
+            </p>
+
+            <p><a href="https://play.google.com/store/apps/details?id=jatx.sshclient" target="_blank"
+                  marker="JatxSSH">SSH-клиент для Android</a>
+                <span class="tag">Java</span>
+                <span class="tag">Android SDK</span>
+                <span class="tag">SSH</span>
+            </p>
+
+            <p><a href="https://play.google.com/store/apps/details?id=jatx.cryptonote.android" target="_blank"
+                  marker="CryptoNote">Блокнот с шифрованием</a>
+                <span class="tag">Java</span>
+                <span class="tag">Android SDK</span>
+                <span class="tag">Криптография</span>
+            </p>
+
+            <p><a href="http://tabatsky.ru/functions" target="_blank"
+                  marker="functions">Графики функций онлайн</a>
+                <span class="tag">Apache Tomcat</span>
+                <span class="tag">Java Servlets</span>
+                <span class="tag">парсер на Java</span>
+                <span class="tag">реализация специальных функций</span>
+                <span class="tag">jQuery</span>
+                <span class="tag">Flot</span>
+                <span class="tag">json</span>
+                <span class="tag">ajax</span>
+            </p>
+
+            <p><a href="http://tabatsky.ru/functions/param.html" target="_blank"
+                  marker="functions_param">Графики онлайн: параметрические функции</a>
+                <span class="tag">Apache Tomcat</span>
+                <span class="tag">Java Servlets</span>
+                <span class="tag">парсер на Java</span>
+                <span class="tag">реализация специальных функций</span>
+                <span class="tag">jQuery</span>
+                <span class="tag">Flot</span>
+                <span class="tag">json</span>
+                <span class="tag">ajax</span>
+            </p>
+
+            <p><a href="https://github.com/tabatsky/jExpressions" target="_blank"
+                  marker="jExpressions">Парсер и калькулятор математических выражений</a>
+                <span class="tag">Java</span>
+                <span class="tag">исходный код</span>
+                <span class="tag">парсер</span>
+                <span class="tag">математика</span>
+                <span class="tag">реализация специальных функций</span>
+                <span class="tag">github</span>
+            </p>
+
+            <p><a href="https://github.com/tabatsky/NetworkingAudioClientServer" target="_blank"
+                  marker="Networking-Audio">Система IP-телефонии</a>
+                <span class="tag">IP-телефония</span>
+                <span class="tag">Java</span>
+                <span class="tag">Servlets</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">звук по сети</span>
+                <span class="tag">TCP/IP</span>
+                <span class="tag">исходный код</span>
+                <span class="tag">github</span></p>
+
+            <p><a href="http://tabatsky.ru" target="_blank"
+                  marker="tabastky-recursion">Сайт-резюме для разработчика</a>
+                <span class="tag">рекурсия</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">jQuery UI</span></p>
+        </div>
+
+        <div id="posts">
+            <p><a href="https://habrahabr.ru/post/338216/" target="_blank"
+                  marker="AStA_sobiraem_APK">AStA: собираем APK на самом устройстве</a>
+                <span class="tag">Android Studio</span>
+                <span class="tag">Android OS</span>
+                <span class="tag">Debian</span>
+                <span class="tag">Gradle</span>
+                <span class="tag">JDK</span>
+                <span class="tag">Android SDK</span></p>
+            <p><a href="https://habrahabr.ru/post/331122/" target="_blank"
+                  marker="Android_dinamichecski_podgruzhaem">Android: динамически подгружаем фрагменты из сети</a>
+                <span class="tag">Android</span>
+                <span class="tag">Java</span>
+                <span class="tag">ClassLoader</span>
+                <span class="tag">Networking</span></p>
+            <p><a href="https://habrahabr.ru/post/330938/" target="_blank"
+                  marker="Java_avtomatichecski_formiruem_SQL">Java: автоматически формируем SQL-запросы</a>
+                <span class="tag">Java</span>
+                <span class="tag">SQL</span>
+                <span class="tag">MySQL</span></p>
+            <p><a href="https://habrahabr.ru/post/330566/" target="_blank"
+                  marker="Patchim_proshivku_Android">Патчим прошивку Android за 5 минут</a>
+                <span class="tag">Реверс-инжиниринг</span>
+                <span class="tag">Android OS</span></p>
+            <p><a href="http://habrahabr.ru/post/242949/" target="_blank"
+                  marker="Transliruem_zvuk_po_seti_Java">Транслируем звук по сети с помощью Java</a>
+                <span class="tag">Java</span>
+                <span class="tag">Android</span>
+                <span class="tag">Звук</span>
+                <span class="tag">Сеть</span></p>
+            <p><a href="http://habrahabr.ru/post/243291/" target="_blank"
+                  marker="Java_IP_telephonia_s_nulya">Java: IP-телефония с нуля</a>
+                <span class="tag">Java</span>
+                <span class="tag">Tomcat</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Звук</span>
+                <span class="tag">Сеть</span>
+                <span class="tag">IP-телефония</span></p>
+            <p><a href="http://habrahabr.ru/post/239355/" target="_blank"
+                  marker="Sozdanie_domashney_audiosystemy">Создание домашней аудиосистемы</a>
+                <span class="tag">Java</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">json</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">jQuery</span>
+                <span class="tag">Android</span></p>
+            <p><a href="http://habrahabr.ru/post/239607/" target="_blank"
+                  marker="Golosovoye_upravlenie_mp3_pleerom">Голосовое управление web-плеером, или скрещиваем CMU Sphinx
+                с Selenium WebDriver</a>
+                <span class="tag">Java</span>
+                <span class="tag">CMU Sphinx 4</span>
+                <span class="tag">Selenium WebDriver</span></p>
+            <p><a href="http://habrahabr.ru/post/239465/" target="_blank"
+                  marker="Samodelniy_Dynamic_DNS">Самодельный Dynamic DNS</a>
+                <span class="tag">Perl</span>
+                <span class="tag">Yandex DNS API</span></p>
+            <p><a href="http://habrahabr.ru/post/244861/" target="_blank"
+                  marker="Github_cherez_I2P">Краткая инструкция: GitHub через I2P</a>
+                <span class="tag">GIT</span>
+                <span class="tag">I2P</span>
+                <span class="tag">GitHub</span></p>
+            <p><a href="http://habrahabr.ru/post/239765/" target="_blank"
+                  marker="Risuem_graphici_online">Рисуем графики онлайн</a>
+                <span class="tag">Java</span>
+                <span class="tag">json</span>
+                <span class="tag">HTML</span>
+                <span class="tag">jQuery</span>
+                <span class="tag">Flot</span></p>
+            <p><a href="http://habrahabr.ru/post/240145/" target="_blank"
+                  marker="Dengi_tovar_statistika">Деньги, товар и немного статистики</a>
+                <span class="tag">Математика</span>
+                <span class="tag">Экономика</span>
+                <span class="tag">Статистика</span>
+                <span class="tag">MATLAB</span></p>
+            <p><a href="http://habrahabr.ru/post/240323/" target="_blank"
+                  marker="Dengi_tovar_statistika_2">Деньги, товар и немного статистики. Часть вторая</a>
+                <span class="tag">Математика</span>
+                <span class="tag">Экономика</span>
+                <span class="tag">Статистика</span>
+                <span class="tag">Графы</span>
+                <span class="tag">MATLAB</span></p>
+            <p><a href="http://habrahabr.ru/post/241393/" target="_blank"
+                  marker="Dengi_tovar_statistika_dopolnenie">Деньги, товар и немного статистики. Дополнение</a>
+                <span class="tag">Математика</span>
+                <span class="tag">Экономика</span>
+                <span class="tag">Статистика</span>
+                <span class="tag">MATLAB</span></p>
+            <p><a href="http://habrahabr.ru/post/241501/" target="_blank"
+                  marker="Sbalansirovannaya_denejnaya_edinitsa">Сбалансированная денежная единица и многосторонний
+                клиринг</a>
+                <span class="tag">Математика</span>
+                <span class="tag">Экономика</span>
+                <span class="tag">Деньги</span></p>
+            <p><a href="http://habrahabr.ru/post/241810/" target="_blank"
+                  marker="VVP_denejnaja_massa">ВВП, денежная масса и динамическое равновесие</a>
+                <span class="tag">Экономика</span>
+                <span class="tag">Моделирование</span>
+                <span class="tag">MATLAB</span></p>
+        </div>
+
+        <div id="books">
+            <p>Прочитанные мною книги по IT-тематике</p>
+            <ul>
+                <li>Джон Эриксон "Хакинг. Искусство эксплойта"</li>
+                <li>Шон Уолтон "Создание сетевых приложений в среде Linux. Руководство разработчика"</li>
+                <li>Роберт Мартин "Чистый код"</li>
+                <li>Эрик Фримен, Элизабет Робсон, Кэти Сьерра
+                    "Head First. Паттерны проектирования"</li>
+                <li>Роберт Мартин "Чистая архитектура"</li>
+                <li>Роберт Мартин "Идеальный программист"</li>
+                <li>Дэвид Томас, Эндрю Хант "Программист-прагматик"</li>
+                <li>Кристин Марсикано, Брайан Гарднер, Билл Филлипс, Крис Стюарт
+                    "Big Nerd Ranch. Android. Программирование для профессионалов. 4-е издание"</li>
+                <li>Мартин Фаулер "Рефакторинг. Улучшение проекта существующего кода"</li>
+                <li>Bryan Sills, Brian Gardner, Kristin Marsicano, Chris Stewart
+                    "Android Programming: The Big Nerd Ranch Guide, 5th Edition"</li>
+                <li>Роберт Мартин "Чистый Agile"</li>
+                <li>Andrew Bailey, David Greenhalgh, Josh Skeen
+                    "Kotlin Programming. The Big Nerd Ranch Guide. 2nd edition"</li>
+                <li>Дмитрий Жемеров, Светлана Исакова "Kotlin в действии"</li>
+                <li>Мартин Клеппман "Высоконагруженные приложения.
+                    Программирование, масштабирование, поддержка"</li>
+                <li>Alexandru Dumbravan "Clean Android Architecture.
+                    Take a layered approach to writing clean, testable and decoupled Android applications"</li>
+                <li>Стивен Макконнелл "Совершенный код.
+                    Практическое руководство по разработке программного обеспечения"</li>
+                <li>Владстон Феррейра Фило "Теоретический минимум по Computer Science.
+                    Всё, что нужно программисту и разработчику"</li>
+                <li>Э. Гамма, Р. Хелм, Р. Джонсон, Дж. Влиссидес
+                    "Паттерны объектно-ориентированного проектирования"</li>
+                <li>Eric Windmill "Flutter in Action"</li>
+                <li>Matt Neuburg "iOS 15 Programming Fundamentals with Swift.
+                    Swift, Xcode, and Cocoa Basics"</li>
+                <li>Роберт Мартин "Идеальная работа. Программирование без прикрас"</li>
+                <li>Кент Бек "Экстремальное программирование: разработка через тестирование"</li>
+                <li>Nader Dabit "React Native in Action"</li>
+            </ul>
+        </div>
+
+        <div id="contacts">
+            <p>WhatsApp: <a href="tel:+79243139560">+7-924-313-95-60</a></p>
+            <p>Telegram: <u><a href="https://t.me/jatx137" target="_blank">@jatx137</a></u></p>
+            <p>E-mail: <a href="mailto:e.tabatsky@gmail.com" target="_blank">e.tabatsky@gmail.com</a></p>
+            <p>Skype: <a href="skype:e.tabatsky">e.tabatsky</a></p>
+        </div>
+
+        <div id="services">
+            <p>Рассматриваю удаленные вакансии full-time и part-time Android Developer. Зарплатные ожидания - от 75 т.р.</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>

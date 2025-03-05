@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Сетевой mp3-плеер JatxMusic</title>
+    <link rel="stylesheet" type="text/css" href="/css/jatxmusic.css">
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+	var uri = '/visitscounter/addvisit?site=jatxmusic';
+	$.get(encodeURI(uri),function(data){});
+});
+</script>
+</head>
+<body>
+<div id="main">
+    <h1>Сетевой mp3-плеер JatxMusic</h1>
+
+    <p class="links">
+        <a href="https://disk.yandex.ru/d/ZwMHHJ5mXu9ZMw" target="_blank">Скачать для JavaFX</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/tabatsky/JatxMusic" target="_blank">Исходный код</a>
+        <br><br>
+        <a href="https://play.google.com/store/apps/details?id=jatx.musictransmitter.android" target="_blank">Transmitter для Android</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://play.google.com/store/apps/details?id=jatx.musicreceiver.android" target="_blank">Receiver для Android</a>
+    </p>
+
+    <br>
+
+    <p>Приложение предназначено для трансляции музыки (в формате mp3) в пределах локальной сети.</p>
+    <p>Имеется возможность добавления в плейлист отдельных треков и папок.</p>
+    <p>Так же имеется возможность загрузки и выгрузки плейлистов в формате M3U (M3U8 для Android).</p>
+
+    <br>
+
+    <p>Приложение состоит из двух компонент - передатчика (MusicTransmitter) и приемника (MusicReceiver).</p>
+    <p>Для корректной работы плеера в приемнике нужно указать IP-адрес передатчика,
+        затем нажать "Старт(Start)", либо "Авто-подключение(Auto Connect)".</p>
+    <p>При успешном подключении надпись на кнопке приемника меняется на "Стоп(Stop)",
+        а иконка Wi-Fi передатчика меняет цвет с серого на чёрный.</p>
+
+    <br>
+
+    <p>Проигрывание трека запускается двойным кликом (для декстопа) или тапом на треке (для Android).</p>
+    <p>Звук регулируется кнопками "вверх" и "вниз".</p>
+
+    <br>
+
+    <h3>Приложение имеет два варианта пользовательского интерфейса.</h3><br>
+    <p><b>Для десктопа (JavaFX):</b></p><br>
+
+    <!--
+    <p class="links">
+    <a href="files/transmitter.jnlp" target="_blank">Transmitter WebStart</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="files/receiver.jnlp" target="_blank">Receiver WebStart</a>
+    </p>
+    -->
+
+    <img src="/img/desktop.png" width="100%"></img>
+
+    <br><br><p><b>И для Android:</b></p><br>
+
+    <img src="/img/android.png" width="100%"></img>
+
+    <br><br><br>
+
+    <p class="links">
+        <a href="https://disk.yandex.ru/d/ZwMHHJ5mXu9ZMw" target="_blank">Скачать для JavaFX</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/tabatsky/JatxMusic" target="_blank">Исходный код</a>
+        <br><br>
+        <a href="https://play.google.com/store/apps/details?id=jatx.musictransmitter.android" target="_blank">Transmitter для Android</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://play.google.com/store/apps/details?id=jatx.musicreceiver.android" target="_blank">Receiver для Android</a>
+    </p>
+
+    <br>
+
+</div>
+</body>
+</html>
